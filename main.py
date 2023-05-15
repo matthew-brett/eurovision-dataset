@@ -1,4 +1,5 @@
 import argparse
+import time
 
 from contest import Contest
 from scraper import Scraper
@@ -10,9 +11,10 @@ def get_contest(y, rounds):
     for r in rounds:
         print('Scraping: Eurovision Song Contest {} {}'.format(y, r))
         contest = scraper.scrape_year(contest, r)
-    
+
     contest = scraper.scrape_misc(contest)
     return contest
+
 
 if __name__ == "__main__":
 
@@ -34,5 +36,6 @@ if __name__ == "__main__":
 
         contest = get_contest(y, rounds)
         to_csv(contest)
-    
+        time.sleep(30)
+
     scraper.driver.quit()

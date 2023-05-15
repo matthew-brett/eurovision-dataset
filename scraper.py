@@ -65,13 +65,11 @@ class Scraper():
     def scrape_votes(self, contest, table_data_attrib=None):
         votes_dict = defaultdict(lambda: defaultdict(int))
 
-        time.sleep(3)
-
         # Create the voting table for the contest
         voting_grid = self.soup.find('table', {'class': 'scoreboard_table'})
         with open("output1.html", "w") as file:
             file.write(str(self.soup))
-        exit()
+        # exit()
         if voting_grid is None:
             return votes_dict
 
